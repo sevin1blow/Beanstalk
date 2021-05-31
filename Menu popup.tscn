@@ -1,0 +1,154 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://GFX/SimplePixelArtUIpack/Artwork/Gray/rounded/buttons/button_rounded_GB.png" type="Texture" id=1]
+[ext_resource path="res://World/Menu popup.gd" type="Script" id=2]
+[ext_resource path="res://GFX/SimplePixelArtUIpack/fonts/font 1/pixelfont.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://GFX/SimplePixelArtUIpack/Artwork/Gray/rounded/buttons/button2_rounded_GB.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 7
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 9
+font_data = ExtResource( 3 )
+
+[node name="Menu popup" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.223529 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = -90.0
+margin_right = 160.0
+margin_bottom = 90.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 119.0
+margin_top = 43.0
+margin_right = 200.0
+margin_bottom = 136.0
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 81.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 1 )
+text = "paused"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 31.0
+margin_right = 81.0
+margin_bottom = 93.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer"]
+margin_left = 14.0
+margin_right = 66.0
+margin_bottom = 62.0
+alignment = 1
+
+[node name="ResumeButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_right = 52.0
+margin_bottom = 18.0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/ResumeButton"]
+margin_left = 1.87289
+margin_top = 1.49831
+margin_right = 51.8729
+margin_bottom = 17.4983
+custom_fonts/font = SubResource( 2 )
+text = "resume"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 22.0
+margin_right = 52.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/RestartButton"]
+margin_left = -1.87286
+margin_top = 1.12373
+margin_right = 56.1271
+margin_bottom = 18.1237
+custom_fonts/font = SubResource( 3 )
+text = "restart"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 52.0
+margin_bottom = 62.0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/MenuButton"]
+margin_left = 2.24744
+margin_right = 50.2474
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 4 )
+text = "menu"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/MenuButton" to="." method="_on_MenuButton_pressed"]

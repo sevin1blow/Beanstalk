@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://endgame.gd" type="Script" id=1]
+[ext_resource path="res://GFX/SimplePixelArtUIpack/fonts/font 1/pixelfont.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://GFX/SimplePixelArtUIpack/Artwork/Gray/rounded/buttons/button2_rounded_GB.png" type="Texture" id=3]
+[ext_resource path="res://GFX/SimplePixelArtUIpack/Artwork/Gray/rounded/buttons/button_rounded_GB.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 7
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 9
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 9
+font_data = ExtResource( 2 )
+
+[node name="endgame" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 320.0
+margin_bottom = 180.0
+color = Color( 0, 0, 0, 0.223529 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 320.0
+margin_bottom = 180.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 98.0
+margin_top = 46.0
+margin_right = 222.0
+margin_bottom = 133.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 124.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 1 )
+text = "game over"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 31.0
+margin_right = 124.0
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 4 )
+text = "text"
+align = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 47.0
+margin_right = 124.0
+margin_bottom = 87.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer"]
+margin_left = 36.0
+margin_right = 88.0
+margin_bottom = 40.0
+
+[node name="ResetButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_right = 52.0
+margin_bottom = 18.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/ResetButton"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 52.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 2 )
+text = "reset"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 22.0
+margin_right = 52.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/MenuButton"]
+margin_top = 1.0
+margin_right = 51.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 3 )
+text = "menu"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/ResetButton" to="." method="_on_ResetButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/MenuButton" to="." method="_on_MenuButton_pressed"]

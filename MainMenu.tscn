@@ -1,0 +1,115 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://GFX/SimplePixelArtUIpack/fonts/font 1/pixelfont.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://GFX/Background.png" type="Texture" id=2]
+[ext_resource path="res://GFX/Stalk.png" type="Texture" id=3]
+[ext_resource path="res://GFX/SimplePixelArtUIpack/Artwork/Gray/rounded/buttons/button2_rounded_GB.png" type="Texture" id=4]
+[ext_resource path="res://GFX/SimplePixelArtUIpack/Artwork/Gray/rounded/buttons/button_rounded_GB.png" type="Texture" id=5]
+[ext_resource path="res://MainMenu.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 9
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 9
+font_data = ExtResource( 1 )
+
+[node name="MainMenu" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 320.0
+margin_bottom = 180.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 97.5
+margin_right = 225.5
+margin_bottom = 180.0
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 320.0
+margin_bottom = 180.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 95.0
+margin_top = 54.0
+margin_right = 224.0
+margin_bottom = 125.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 129.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 1 )
+text = "beanstalk"
+align = 1
+valign = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 31.0
+margin_right = 129.0
+margin_bottom = 71.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer"]
+margin_left = 38.0
+margin_right = 90.0
+margin_bottom = 40.0
+
+[node name="PlayButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_right = 52.0
+margin_bottom = 18.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/PlayButton"]
+margin_left = -0.749146
+margin_top = 1.87289
+margin_right = 51.2509
+margin_bottom = 16.8729
+custom_fonts/font = SubResource( 2 )
+text = "play"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 22.0
+margin_right = 52.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/CreditsButton"]
+margin_left = 1.87288
+margin_top = 1.87288
+margin_right = 50.8729
+margin_bottom = 16.8729
+custom_fonts/font = SubResource( 3 )
+text = "credits"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
